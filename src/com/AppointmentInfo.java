@@ -87,7 +87,7 @@ public class AppointmentInfo {
 				 
 			// Prepare the html table to be displayed 
 			 
-			 output = "<table border=\"1\"><tr><th>Appointment ID</th><th>Patient Name</th><th>Gender</th><th>Contact No</th><th>Hospital Name</th><th>Doctor Name</th><th>Appointment Date</><th>Update</th><th>Remove</th></tr>"; 
+			 output = "<table border=\"1\"><tr><th>Patient Name</th><th>Gender</th><th>Contact No</th><th>Hospital Name</th><th>Doctor Name</th><th>Appointment Date</><th>Update</th><th>Remove</th></tr>"; 
 			 
 			 
 			 
@@ -112,6 +112,7 @@ public class AppointmentInfo {
 			 
 				// Add into the html table
 
+				 output +="<tr><td><input id=\"hidItemIDUpdate\" name=\"hidItemIDUpdate\" type=\"hidden\" value=\"" + appointmentID + "/td>";
 				 
 				 output += "<tr><td>" + appointmentID + "</td>"; 
 				 output += "<td>" + patientName + "</td>"; 
@@ -124,10 +125,10 @@ public class AppointmentInfo {
 				 
 				 
 		
-					output += "<td><input name=\"btnUpdate\" type=\"button\"value=\"Update\" class=\"btn btn-secondary\"></td>"
+					output += "<td><input name=\"btnUpdate\" type=\"button\"value=\"Update\" class=\"btnUpdate btn btn-secondary\"></td>"
 							+ "<td><form method=\"post\" action=\"patient.jsp\">"
 							+ "<input name=\"btnRemove\" type=\"submit\" value=\"Remove\"class=\"btn btn-danger\">"
-							+ "<input name=\"RegId\" type=\"hidden\" value=\"" + appointmentID  + "\">" + "</form></td></tr>";
+							+ "<input name=\"hidItemIDDDelete\" type=\"hidden\" value=\"" + appointmentID  + "\">" + "</form></td></tr>";
 			 }
 				 con.close();
 				 
