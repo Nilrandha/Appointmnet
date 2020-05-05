@@ -56,14 +56,19 @@ public class AppointmentInfo {
 				 preparedStmt.execute();
 				 con.close(); 
 				 
-				 output = "Inserted successfully";
+				 con.close();
+				
+				 String newItems =readAppointmentInfo();
+				 output = "{\"status\":\"success\", \"data\": \"" +
+				 newItems + "\"}";  
+			
 			  
 				 
 			 } 
 				 catch (Exception e)
 				 {
 				
-					 output = "Error while inserting the appointment information.";
+					 output = "{\"status\":\"error\", \"data\": \"Error while inserting the appointment data.\"}"; 
 					 System.err.println(e.getMessage());
 				 }
 				 	return output;
@@ -87,7 +92,7 @@ public class AppointmentInfo {
 				 
 			// Prepare the html table to be displayed 
 			 
-			 output = "<table border=\"1\"><tr><th>Patient Name</th><th>Gender</th><th>Contact No</th><th>Hospital Name</th><th>Doctor Name</th><th>Appointment Date</><th>Update</th><th>Remove</th></tr>"; 
+			 output = "<table border='1'><tr><th>Patient Name</th><th>Gender</th><th>Contact No</th><th>Hospital Name</th><th>Doctor Name</th><th>Appointment Date</><th>Update</th><th>Remove</th></tr>"; 
 			 
 			 		 
 			 
@@ -126,9 +131,10 @@ public class AppointmentInfo {
 				
 				 
 				 output += "<td><input name='btnUpdate' type='button' value='Update' class='btnUpdate btn btn-secondary'></td>"
-							+ "<form method=\"post\" action=\"appointment.jsp\">"
-						  +"<td><input name='btnRemove' type='button' value='Remove' class='btn btn-danger'></td></tr>" 
-				 + "<input name=\"hidItemIDDDelete\" type=\"hidden\" value=\"" + appointmentID  + "\">" + "</form></td></tr>";
+							//+ "<form method=\"post\" action=\"appointment.jsp\">"
+						  +"<td><input name='btnRemove' type='button' value='Remove' class='btn btn-danger' data-itemid='" +  appointmentID + "'>" + "</td></tr>";  
+			
+				//LAB 09	  //+ "<input name=\"hidItemIDDDelete\" type=\"hidden\" value=\"" + appointmentID  + "\">" + "</form></td></tr>";
 			
 				 /*	output += "<td><input name=\"btnUpdate\" type=\"button\"value=\"Update\" class=\"btnUpdate btn btn-secondary\"></td>"
 							+ "<td><form method=\"post\" action=\"patient.jsp\">"
@@ -186,14 +192,16 @@ public class AppointmentInfo {
 		 preparedStmt.execute();
 		 con.close();
 		 
-		 output = "Updated successfully";
+		 String newItems = readAppointmentInfo();
+		 output = "{\"status\":\"success\", \"data\": \"" +
+		 newItems + "\"}";
 		 
 		 } 
 		
 		catch (Exception e)
 		 {
 		 
-			output = "Error while updating the appointment information.";
+			output = "{\"status\":\"error\", \"data\":\"Error while updating the appointment data.\"}"; 
 			System.err.println(e.getMessage());
 		 } 
 		
@@ -225,7 +233,9 @@ public class AppointmentInfo {
 			 preparedStmt.execute();
 			 con.close();
 			 
-			 output = "Deleted successfully";
+			 String newItems = readAppointmentInfo();
+			 output = "{\"status\":\"success\", \"data\": \"" +
+			 newItems + "\"}";
 			
 			 }
 			 
@@ -233,7 +243,7 @@ public class AppointmentInfo {
 		
 		catch (Exception e)
 		 {
-				output = "Error while deleting the appointment.";
+			output = "{\"status\":\"error\", \"data\":\"Error while deleting the appointment .\"}"; 
 				System.err.println(e.getMessage());
 		 }
 		 

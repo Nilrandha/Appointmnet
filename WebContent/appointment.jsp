@@ -2,53 +2,6 @@
     pageEncoding="ISO-8859-1"%>
 
 <%@ page import="com.AppointmentInfo"%>
-<%
-	//AppointmentInfo app= new AppointmentInfo();
-
-//Intialize==========
-	session.setAttribute("statusMsg","");
-	System.out.println("Trying to process....");
-	
-	//Save
-	if (request.getParameter("patientName") != null)
-{
-		AppointmentInfo app= new AppointmentInfo();
- 		String stsMsg = "";
-
- 		
- 		//Insert--------------------------
-		if (request.getParameter("hidItemIDSave") == "")
- 		{
-			stsMsg = app.insertAppointmentInfo(request.getParameter("patientName"),
-					request.getParameter("gender"),
-					request.getParameter("contactNo"),
-					request.getParameter("hospitalName"),
-					request.getParameter("doctorName"),	
-			 		request.getParameter("appointmentDate"));
- 		}
-else
-	//Update----------------------
-		 {
- 			stsMsg = app.updateAppointmentInfo(request.getParameter("hidItemIDSave"),
-				     request.getParameter("patientName"),
- 					 request.getParameter("gender"),
-					 request.getParameter("contactNo"),
- 					 request.getParameter("hospitalName"),
- 					 request.getParameter("doctorName"),
- 					 request.getParameter("appointmentDate"));
- }
- session.setAttribute("statusMsg", stsMsg);
-}
-	//Delete-----------------------------
-	if (request.getParameter("hidItemIDDelete") != null)
-	{
-		AppointmentInfo app= new AppointmentInfo();
-	 	String stsMsg = app.deleteAppointmentInfo(request.getParameter("hidItemIDDelete"));
-		session.setAttribute("statusMsg", stsMsg);
-	}
-	
-
-%>
 
 
 
@@ -57,6 +10,7 @@ else
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <script src="Components/jquery-3.5.0.js"></script>
 <script src="Components/appointment.js"></script>
@@ -98,23 +52,19 @@ else
 		</form>
 		
 		
-		<div id="alertSuccess" class="alert alert-success">
-			<%
-				out.print(session.getAttribute("statusMsg"));		
-			%>
-		</div>
+		<div id="alertSuccess" class="alert alert-success"></div>
 		
 		<div id="alertError" class="alert alert-danger"> </div>
 		
 		<br>
-		
+			<div id="divItemsGrid">
 		<%
 			AppointmentInfo api= new AppointmentInfo();
 			out.print(api.readAppointmentInfo());
 		%>
 			</div>
-
-
+		
+		</div>
 
 
 
