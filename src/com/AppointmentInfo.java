@@ -113,7 +113,7 @@ public class AppointmentInfo {
 				// Add into the html table
 
 				// output +="<tr><td><input id=\"hidItemIDUpdate\" name=\"hidItemIDUpdate\" type=\"hidden\" value=\"" + appointmentID + "/td>";
-					output += "<tr><td><input id='hidRegIdUpdate' name='hidRegIdUpdate' type='hidden' value='" + appointmentID + "'>"
+					output += "<tr><td><input id='hidItemIDUpdate' name='hidItemIDUpdate' type='hidden' value='" + appointmentID + "'>"
 				+ patientName + "</td>";
 				 
 				// output += "<tr><td>" + appointmentID + "</td>"; 
@@ -126,6 +126,7 @@ public class AppointmentInfo {
 				
 				 
 				 output += "<td><input name='btnUpdate' type='button' value='Update' class='btnUpdate btn btn-secondary'></td>"
+							+ "<form method=\"post\" action=\"appointment.jsp\">"
 						  +"<td><input name='btnRemove' type='button' value='Remove' class='btn btn-danger'></td></tr>" 
 				 + "<input name=\"hidItemIDDDelete\" type=\"hidden\" value=\"" + appointmentID  + "\">" + "</form></td></tr>";
 			
