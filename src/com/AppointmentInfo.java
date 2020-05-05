@@ -89,7 +89,7 @@ public class AppointmentInfo {
 			 
 			 output = "<table border=\"1\"><tr><th>Patient Name</th><th>Gender</th><th>Contact No</th><th>Hospital Name</th><th>Doctor Name</th><th>Appointment Date</><th>Update</th><th>Remove</th></tr>"; 
 			 
-			 
+			 		 
 			 
 			 String query = "select * from appointmenttb";
 			 Statement stmt = con.createStatement();
@@ -112,10 +112,12 @@ public class AppointmentInfo {
 			 
 				// Add into the html table
 
-				 output +="<tr><td><input id=\"hidItemIDUpdate\" name=\"hidItemIDUpdate\" type=\"hidden\" value=\"" + appointmentID + "/td>";
+				// output +="<tr><td><input id=\"hidItemIDUpdate\" name=\"hidItemIDUpdate\" type=\"hidden\" value=\"" + appointmentID + "/td>";
+					output += "<tr><td><input id='hidRegIdUpdate' name='hidRegIdUpdate' type='hidden' value='" + appointmentID + "'>"
+				+ patientName + "</td>";
 				 
-				 output += "<tr><td>" + appointmentID + "</td>"; 
-				 output += "<td>" + patientName + "</td>"; 
+				// output += "<tr><td>" + appointmentID + "</td>"; 
+				// output += "<td>" + patientName + "</td>"; 
 				 output += "<td>" + gender + "</td>"; 
 				 output += "<td>" + contactNo+ "</td>"; 
 				 output += "<td>" +hospitalName  + "</td>"; 
@@ -123,12 +125,14 @@ public class AppointmentInfo {
 				 output += "<td>" + appointmentDate + "</td>"; 
 				
 				 
-				 
-		
-					output += "<td><input name=\"btnUpdate\" type=\"button\"value=\"Update\" class=\"btnUpdate btn btn-secondary\"></td>"
+				 output += "<td><input name='btnUpdate' type='button' value='Update' class='btnUpdate btn btn-secondary'></td>"
+						  +"<td><input name='btnRemove' type='button' value='Remove' class='btn btn-danger'></td></tr>" 
+				 + "<input name=\"hidItemIDDDelete\" type=\"hidden\" value=\"" + appointmentID  + "\">" + "</form></td></tr>";
+			
+				 /*	output += "<td><input name=\"btnUpdate\" type=\"button\"value=\"Update\" class=\"btnUpdate btn btn-secondary\"></td>"
 							+ "<td><form method=\"post\" action=\"patient.jsp\">"
 							+ "<input name=\"btnRemove\" type=\"submit\" value=\"Remove\"class=\"btn btn-danger\">"
-							+ "<input name=\"hidItemIDDDelete\" type=\"hidden\" value=\"" + appointmentID  + "\">" + "</form></td></tr>";
+							+ "<input name=\"hidItemIDDDelete\" type=\"hidden\" value=\"" + appointmentID  + "\">" + "</form></td></tr>";*/
 			 }
 				 con.close();
 				 
