@@ -102,6 +102,8 @@ $(document).on("click", ".btnUpdate", function(event)
 
 //REMOVE ===================================================
 
+//Implementing the delete button
+
 $(document).on("click", ".btnRemove", function(event)
 		{
 		 $.ajax(

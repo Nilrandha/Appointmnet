@@ -132,7 +132,7 @@ public class AppointmentInfo {
 				 
 				 output += "<td><input name='btnUpdate' type='button' value='Update' class='btnUpdate btn btn-secondary'></td>"
 							//+ "<form method=\"post\" action=\"appointment.jsp\">"
-						  +"<td><input name='btnRemove' type='button' value='Remove' class='btn btn-danger' data-itemid='" +  appointmentID + "'>" + "</td></tr>";  
+						  +"<td><input name='btnRemove' type='button' value='Remove' class='btnRemove btn btn-danger' data-itemid='" +appointmentID+ "'>" + "</td></tr>";  
 			
 				//LAB 09	  //+ "<input name=\"hidItemIDDDelete\" type=\"hidden\" value=\"" + appointmentID  + "\">" + "</form></td></tr>";
 			
