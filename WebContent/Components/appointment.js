@@ -125,32 +125,31 @@ $(document).on("click", ".btnRemove", function(event)
 function onItemDeleteComplete(response, status)
 {
 	if (status == "success")
- {
+	{
 		var resultSet = JSON.parse(response);
-		if (resultSet.status.trim() == "success")
+	
+	if (resultSet.status.trim() == "success")
 	{
 			$("#alertSuccess").text("Successfully deleted.");
 			$("#alertSuccess").show();
+			
 			$("#divItemsGrid").html(resultSet.data);
-	} 
-		else if (resultSet.status.trim() == "error")
-
+	} else if (resultSet.status.trim() == "error")
 	{
 			$("#alertError").text(resultSet.data);
 			$("#alertError").show();
 	}
  
- } 
-		else if (status == "error")
+ } 	else if (status == "error")
 	{
 			$("#alertError").text("Error while deleting.");
 			$("#alertError").show();
-	} 
-		else
+	} else
 	{
 			$("#alertError").text("Unknown error while deleting..");
 			$("#alertError").show();
 	}
+	
 }
 
 
@@ -176,6 +175,7 @@ function validateItemForm()
 	{
 		return "Insert Contact Number.";
 	}
+	
 
 /*	// is numerical value
 	var tmpPrice = $("#itemPrice").val().trim();

@@ -118,8 +118,10 @@ public class AppointmentInfo {
 				// Add into the html table
 
 				// output +="<tr><td><input id=\"hidItemIDUpdate\" name=\"hidItemIDUpdate\" type=\"hidden\" value=\"" + appointmentID + "/td>";
+	
+	////tech2			 
 					output += "<tr><td><input id='hidItemIDUpdate' name='hidItemIDUpdate' type='hidden' value='" + appointmentID + "'>"
-				+ patientName + "</td>";
+				+ patientName + "</td>"; 
 				 
 				// output += "<tr><td>" + appointmentID + "</td>"; 
 				// output += "<td>" + patientName + "</td>"; 

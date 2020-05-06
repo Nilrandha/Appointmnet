@@ -44,7 +44,7 @@
 			<input id="doctorName" name="doctorName" type="text" class="form-control form-control-sm">
 
 			<br>Appointment Date:
-			<input id="appointmentDate" name="appointmentDate" type="date" class="form-control form-control-sm">
+			<input id="appointmentDate" name="appointmentDate" type="month" class="form-control form-control-sm">
 
 			<br>
 			<input id="btnSave" name="btnSave" type="button" value="Save" class="btn btn-primary">
